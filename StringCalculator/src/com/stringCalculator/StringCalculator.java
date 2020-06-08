@@ -6,12 +6,21 @@ public class StringCalculator {
 		if(numbers.isEmpty())
 			return 0;
 		else if(numbers.contains(",")) {
-			String[] newNumbers = numbers.split(",");
-			return Integer.parseInt(newNumbers[0])+Integer.parseInt(newNumbers[1]);
+			int sumOfNumbers = sumOfMultipleNumbers(numbers);
+			return sumOfNumbers;
 		}
 		else
 			return Integer.parseInt(numbers);
 		}
 
+	private static int sumOfMultipleNumbers(String numbers) {
+		int sum=0;
+		String[] newNumbers = numbers.split(",");
+		for(int i=0;i<newNumbers.length;i++) {
+			sum+=Integer.parseInt(newNumbers[i]);
+		}
+		return sum;
+	}
+	
 	
 }

@@ -19,4 +19,10 @@ public class StringCalculatorTest {
 	public void sumOfTwoNumbers(){
 	Assert.assertEquals(5, StringCalculator.add("2,3"));
 	}
+	
+	@Test
+	public void sumOfMultipleNumbers(){
+	Assert.assertEquals(12, StringCalculator.add("2,3,4,3"));
+	}
+	
 }
