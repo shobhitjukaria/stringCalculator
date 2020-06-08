@@ -25,4 +25,10 @@ public class StringCalculatorTest {
 	Assert.assertEquals(12, StringCalculator.add("2,3,4,3"));
 	}
 	
+	@Test
+	public void sumOfMultipleNumbersWithNewLineDelimiter(){
+	Assert.assertEquals(5, StringCalculator.add("2\n3"));
+	Assert.assertEquals(16, StringCalculator.add("2,3\n4,7"));
+	}
+	
 }
