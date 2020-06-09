@@ -41,4 +41,9 @@ public class StringCalculatorTest {
 		StringCalculator.add("1,-2\n3");
 	}
 	
+	@Test
+	public void removeNumbersGreaterThanThousand(){
+	Assert.assertEquals(10, StringCalculator.add("1001,3,4,3"));
+	}
+	
 }

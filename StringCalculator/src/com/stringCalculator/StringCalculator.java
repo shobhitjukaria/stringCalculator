@@ -48,7 +48,10 @@ public class StringCalculator {
 			catch(RuntimeException e) {
 				System.out.println("Negatives Not allowed" );
 			}
-			
+			if(Integer.parseInt(newNumbers[i])>1000) {
+				continue;
+			}
+			else
 			sum+=Integer.parseInt(newNumbers[i]);
 		}
 		return sum;
