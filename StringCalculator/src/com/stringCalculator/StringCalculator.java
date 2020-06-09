@@ -41,10 +41,19 @@ public class StringCalculator {
 	private static int calculateSum(String[] newNumbers) {
 		int sum=0;
 		for(int i=0;i<newNumbers.length;i++) {
+			try {
+			if(Integer.parseInt(newNumbers[i]) < 0) {
+				throw new RuntimeException();}
+			}
+			catch(RuntimeException e) {
+				System.out.println("Negatives Not allowed" );
+			}
+			
 			sum+=Integer.parseInt(newNumbers[i]);
 		}
 		return sum;
+		}
+	
+	
 	}
-	
-	
-}
+
