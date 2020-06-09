@@ -31,4 +31,9 @@ public class StringCalculatorTest {
 	Assert.assertEquals(16, StringCalculator.add("2,3\n4,7"));
 	}
 	
+	@Test
+	public void sumOfMultipleNumbersWithCustomDelimiter(){
+	Assert.assertEquals(3, StringCalculator.add("//;\n1;2"));
+	}
+	
 }
