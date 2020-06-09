@@ -1,5 +1,7 @@
 package com.stringCalculator;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -38,8 +40,12 @@ public class StringCalculatorTest {
 	
 	@Test
 	public void checkForNegativeNumbers(){
-		StringCalculator.add("1,-2\n3");
+		try {
+		StringCalculator.add("-1,-2\n-3");
+	}catch(RuntimeException e) {
+		assertEquals("Negatives not allowed-1-2-3", e.getMessage());
 	}
+		}
 	
 	@Test
 	public void removeNumbersGreaterThanThousand(){
