@@ -10,12 +10,21 @@ public class StringCalculator {
 			return 0;
 		else if(line.contains(",") || line.contains("\n")) {
 			if(line.startsWith("//")) {
-				Matcher m = Pattern.compile("//(.)\n(.*)").matcher(line);
-				m.matches();
-				String customDelimeter = m.group(1);
-				String numbers=m.group(2);
-				int sum = sumOfNumbersWithCustomDelimiter(numbers,customDelimeter);
-				return sum;
+				Matcher m1 = Pattern.compile("//(.)\n(.*)").matcher(line);
+				if(m1.matches()) {
+					String customDelimeter1 = m1.group(1);
+					String numbers1=m1.group(2);
+					int sum1 = sumOfNumbersWithCustomDelimiter(numbers1,customDelimeter1);
+					return sum1;
+				}
+				Matcher m2 = Pattern.compile("//(.+)\n((.+)*)").matcher(line);
+				if(m2.matches()) {
+				String customDelimeter2 = m2.group(1);
+				String numbers2=m2.group(2);
+				int sum2 = sumOfNumbersWithCustomDelimiterofVariableLengths(numbers2,customDelimeter2);
+				return sum2;
+				}
+				else return 0;
 			}
 			else {
 			int sumOfNumbers = sumOfMultipleNumbers(line);
@@ -27,6 +36,12 @@ public class StringCalculator {
 		}
 
 	private static int sumOfNumbersWithCustomDelimiter(String numbers, String customDelimiter) {
+		String[] numbersFromCustomDelimiter=numbers.split(customDelimiter);
+		int sum=calculateSum(numbersFromCustomDelimiter);
+		return sum;
+	}
+	
+	private static int sumOfNumbersWithCustomDelimiterofVariableLengths(String numbers, String customDelimiter) {
 		String[] numbersFromCustomDelimiter=numbers.split(customDelimiter);
 		int sum=calculateSum(numbersFromCustomDelimiter);
 		return sum;

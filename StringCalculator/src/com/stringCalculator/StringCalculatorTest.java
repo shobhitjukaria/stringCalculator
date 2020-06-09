@@ -46,4 +46,9 @@ public class StringCalculatorTest {
 	Assert.assertEquals(10, StringCalculator.add("1001,3,4,3"));
 	}
 	
+	@Test
+	public void sumOfNumbersWithCustomDelimiterWithVariableLength(){
+	Assert.assertEquals(6, StringCalculator.add("//;;;\n1;;;2;;;3"));
+	}
+	
 }
